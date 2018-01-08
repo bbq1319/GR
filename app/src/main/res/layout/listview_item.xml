@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/food_red_line">
+
+
+    <TextView
+        android:id="@+id/food_date_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="#f73124"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:layout_weight="3"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="7"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/food_meal_break"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#f73124"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/food_main_break"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:textSize="18dp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/food_meal_lunch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#f73124"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/food_main_lunch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:textSize="18dp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/food_meal_dinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#f73124"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/food_main_dinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:textSize="18dp"
+            android:textColor="#000000"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,154 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qhshef.gr.FragHome">
+
+    <!-- 위쪽 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <!-- 왼쪽 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- 왼쪽상단 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+
+                <!-- 교내식당 -->
+                <Button
+                    android:id="@+id/camtel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:background="@drawable/food"/>
+
+            </LinearLayout>
+
+            <!-- 왼쪽하단 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <!-- 기숙사 재학생 규칙 -->
+                <Button
+                    android:id="@+id/dormrule"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    android:background="@drawable/rule"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <!-- 실내지도 -->
+                    <Button
+                        android:id="@+id/map"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/map"/>
+
+                    <!-- 상담실 -->
+                    <Button
+                        android:id="@+id/coun"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/counselor"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 오른쪽 -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <!-- 오른쪽상단 -->
+            <!-- 이미지 -->
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/gr"/>
+
+            <!-- 오른쪽중단 -->
+            <!-- 덕성여객 -->
+            <Button
+                android:id="@+id/duksung"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:scaleType="fitXY"
+                android:background="@drawable/duksung"/>
+
+            <!-- 오른쪽하단 -->
+            <!-- 학교버스 -->
+            <Button
+                android:id="@+id/schoolbus"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:background="@drawable/school"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!-- 아래쪽 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- 이미지2 -->
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/gr2"/>
+
+        <!-- 배달 -->
+        <Button
+            android:id="@+id/delivery"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:background="@drawable/delivery"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
