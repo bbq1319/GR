@@ -88,12 +88,12 @@ public class FragFoodAll extends Fragment implements View.OnClickListener {
 
             try{
                 // 파싱을 url 설정
-                String url = "http://www.ggu.ac.kr/kor/campus_life/public_space_1.php";
+                String url = "https://www.ggu.ac.kr/sub0504/";
                 Document doc = Jsoup.connect(url).get();
 
                 // 파싱 해오기
-                Elements date = doc.select(".tb_style02 > tbody > tr > th");
-                Elements day = doc.select(".tb_style02 > tbody > tr > td");
+                Elements date = doc.select(".table-wrap > table > tbody > tr > th");
+                Elements day = doc.select(".table-wrap > table > tbody > tr > td");
 
                 // 날짜 전달
                 for(int i=3;i<date.size()-1;i++){

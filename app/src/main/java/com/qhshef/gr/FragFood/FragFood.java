@@ -1,7 +1,9 @@
 package com.qhshef.gr.FragFood;
 
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,13 +15,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.qhshef.gr.FragHome;
 import com.qhshef.gr.R;
+import com.qhshef.gr.SSLConnect;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,7 +34,7 @@ import static com.qhshef.gr.R.id.frame;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragCamTel extends Fragment implements View.OnClickListener {
+public class FragFood extends Fragment implements View.OnClickListener {
 
     TextView food_date;
     TextView food_meal;
@@ -39,7 +42,9 @@ public class FragCamTel extends Fragment implements View.OnClickListener {
     TextView bewteen;
     Button food_all;
 
-    public FragCamTel() {
+    Fragment fragment = null;
+
+    public FragFood() {
         // Required empty public constructor
     }
 
@@ -48,7 +53,7 @@ public class FragCamTel extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_cam_tel, container, false);
+        View v = inflater.inflate(R.layout.fragment_food, container, false);
 
         food_main = v.findViewById(R.id.food_main);
         food_date = v.findViewById(R.id.food_date);
@@ -64,6 +69,10 @@ public class FragCamTel extends Fragment implements View.OnClickListener {
         bewteen.setTypeface(typeface);
         food_all.setTypeface(typeface);
 
+        // ssl 권한을 위해 추가
+        SSLConnect ssl = new SSLConnect();
+        ssl.postHttps("https://www.ggu.ac.kr/sub0504/", 1000, 1000);
+
         GetResult task = new GetResult();
         task.execute();
 
@@ -72,7 +81,6 @@ public class FragCamTel extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Fragment fragment = null;
 
         fragment = new FragFoodAll();
 
@@ -107,13 +115,16 @@ public class FragCamTel extends Fragment implements View.OnClickListener {
 
             try {
                 // 파싱을 url 설정
-                String url = "http://www.ggu.ac.kr/kor/campus_life/public_space_1.php";
-                Document doc = Jsoup.connect(url).get();
+                String strUrl = "https://www.ggu.ac.kr/sub0504/";
+                Document doc = Jsoup.connect(strUrl).get();
 
                 // 파싱 해오기
-                Elements date = doc.select(".tb_style02 > tbody > tr > th");
-                Elements day = doc.select(".tb_style02 > tbody > tr > td");
-                Elements all = doc.select(".tb_style02 > tbody > tr");
+                Elements date = doc.select(".table-wrap > table > tbody > tr > th");
+                Elements day = doc.select(".table-wrap > table > tbody > tr > td");
+                Elements all = doc.select(".table-wrap > table > tbody > tr");
+
+                System.out.println(date);
+                System.out.println(day);
 
                 // 시간 설정
                 long now = System.currentTimeMillis();
@@ -132,7 +143,7 @@ public class FragCamTel extends Fragment implements View.OnClickListener {
                 int getDay;
 
                 // M/d 형식
-                if(dates.length > 1){
+                if (dates.length > 1) {
                     getMonth = Integer.valueOf(dates[0]);
                     getDay = Integer.valueOf(dates[1]);
                 } else {
@@ -148,85 +159,89 @@ public class FragCamTel extends Fragment implements View.OnClickListener {
                 int int_meal_time = Integer.parseInt(meal_time);
 
                 // 날짜 한국어로 변경
-                if(date_of_week.equals("Mon")){
+                if (date_of_week.equals("Mon")) {
                     date_of_week = "월";
-                } else if(date_of_week.equals("Tue")){
+                } else if (date_of_week.equals("Tue")) {
                     date_of_week = "화";
-                } else if(date_of_week.equals("Wed")){
+                } else if (date_of_week.equals("Wed")) {
                     date_of_week = "수";
-                } else if(date_of_week.equals("Thu")){
+                } else if (date_of_week.equals("Thu")) {
                     date_of_week = "목";
-                } else if(date_of_week.equals("Fri")){
+                } else if (date_of_week.equals("Fri")) {
                     date_of_week = "금";
-                } else if(date_of_week.equals("Sat")){
+                } else if (date_of_week.equals("Sat")) {
                     date_of_week = "토";
-                } else if(date_of_week.equals("Sun")){
+                } else if (date_of_week.equals("Sun")) {
                     date_of_week = "일";
                 }
 
                 // 날짜 전달
-                for(int i=0;i<date.size();i++){
+                for (int i = 0; i < date.size(); i++) {
                     // 오늘 날 찾기( ex) 1/3 )
-                    if((getMonth+"/"+getDay+" "+"["+date_of_week+"]").equals(date.get(i).text())){
+                    if ((getMonth + "/" + getDay + " " + "[" + date_of_week + "]").equals(date.get(i).text())) {
 
                         // 날짜 설정
                         result.put("date", date.get(i).text());
 
                         // 조식 / 메뉴 설정
-                        if(0 <= int_meal_time && int_meal_time < 10){
+                        if (0 <= int_meal_time && int_meal_time < 10) {
                             result.put("meal", date.get(0).text());
-                            result.put("main", day.get(i*3-3).text());
+                            result.put("main", day.get(i * 3 - 3).text());
                         }
 
                         // 중식 / 메뉴 설정
-                        else if(10 <= int_meal_time && int_meal_time < 14){
+                        else if (10 <= int_meal_time && int_meal_time < 14) {
                             result.put("meal", date.get(1).text());
-                            result.put("main", day.get(i*3-2).text());
+                            result.put("main", day.get(i * 3 - 2).text());
                         }
 
                         // 석식 / 메뉴 설정
-                        else if(14 <= int_meal_time && int_meal_time < 24){
+                        else if (14 <= int_meal_time && int_meal_time < 24) {
                             result.put("meal", date.get(2).text());
-                            result.put("main", day.get(i*3-1).text());
+                            result.put("main", day.get(i * 3 - 1).text());
                         }
                     }
                     // 오늘 날 찾기( ex) 01/03 )
-                    else if((getMM+"/"+getDD+" "+"["+date_of_week+"]").equals(date.get(i).text())){
+                    else if ((getMM + "/" + getDD + " " + "[" + date_of_week + "]").equals(date.get(i).text())) {
 
                         // 날짜 설정
                         result.put("date", date.get(i).text());
 
                         // 조식 / 메뉴 설정
-                        if(0 <= int_meal_time && int_meal_time < 10){
+                        if (0 <= int_meal_time && int_meal_time < 10) {
                             result.put("meal", date.get(0).text());
-                            result.put("main", day.get(i*3-3).text());
+                            result.put("main", day.get(i * 3 - 3).text());
                         }
 
                         // 중식 / 메뉴 설정
-                        else if(10 <= int_meal_time && int_meal_time < 14){
+                        else if (10 <= int_meal_time && int_meal_time < 14) {
                             result.put("meal", date.get(1).text());
-                            result.put("main", day.get(i*3-2).text());
+                            result.put("main", day.get(i * 3 - 2).text());
                         }
 
                         // 석식 / 메뉴 설정
-                        else if(14 <= int_meal_time && int_meal_time < 24){
+                        else if (14 <= int_meal_time && int_meal_time < 24) {
                             result.put("meal", date.get(2).text());
-                            result.put("main", day.get(i*3-1).text());
+                            result.put("main", day.get(i * 3 - 1).text());
                         }
                     }
 
                 }
 
                 // 로딩 중
-                for(int i=0;i<1;i++){
+                for (int i = 0; i < 1; i++) {
                     Thread.sleep(500);
+                    System.out.println("**********************************");
                 }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+            } catch (Exception e){
                 e.printStackTrace();
             }
+
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
 
             return result;
 
@@ -237,18 +252,42 @@ public class FragCamTel extends Fragment implements View.OnClickListener {
 
             asyncDialog.dismiss();
 
-            // / 출력
-            bewteen.setVisibility(View.VISIBLE);
+            try {
+                // / 출력
+                bewteen.setVisibility(View.VISIBLE);
 
-            // 날짜 / 조,중,석식 출력
-            food_date.setText(map.get("date"));
-            food_meal.setText(map.get("meal"));
+                // 날짜 / 조,중,석식 출력
+                food_date.setText(map.get("date"));
+                food_meal.setText(map.get("meal"));
 
-            // 메뉴 출력
-            String getFoodMain = map.get("main");
-            String[] setFoodMain = getFoodMain.split("\\s");
-            for(int n=0;n<setFoodMain.length;n++)
-                food_main.append(setFoodMain[n]+"\n");
+                // 메뉴 출력
+                String getFoodMain = map.get("main");
+                String[] setFoodMain = getFoodMain.split("\\s");
+                for(int n=0;n<setFoodMain.length;n++)
+                    food_main.append(setFoodMain[n]+"\n");
+            } catch (Exception e){
+                e.printStackTrace();
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle("경고");
+                dialog.setMessage("예상치 못한 오류로 불러올 수 없습니다.")
+                        .setCancelable(true)
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                fragment = new FragHome();
+
+                                if (fragment != null) {
+                                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                                    ft.replace(frame, fragment);
+                                    ft.addToBackStack(null);
+                                    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+                                    ft.commit();
+                                }
+                            }
+                        });
+                dialog.show();
+            }
 
         }
     }

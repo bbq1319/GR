@@ -21,7 +21,7 @@ import com.qhshef.gr.FoodDeli.FragDelivery;
 import com.qhshef.gr.FragBus.FragSchoolBus;
 import com.qhshef.gr.FragCounsel.FragCoun;
 import com.qhshef.gr.FragDuksung.FragDuksungMain;
-import com.qhshef.gr.FragFood.FragCamTel;
+import com.qhshef.gr.FragFood.FragFood;
 import com.qhshef.gr.FragMap.FragMapSelect;
 import com.qhshef.gr.FragRule.FragDormRule;
 
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             fragment = new FragHome();
         } else if (id == R.id.nav_food) {
-            fragment = new FragCamTel();
+            fragment = new FragFood();
         } else if (id == R.id.nav_delivery) {
             fragment = new FragDelivery();
         } else if (id == R.id.nav_duk) {

@@ -27,7 +27,7 @@
 
                 <!-- 교내식당 -->
                 <Button
-                    android:id="@+id/camtel"
+                    android:id="@+id/food"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"

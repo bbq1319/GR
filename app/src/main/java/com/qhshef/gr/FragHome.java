@@ -17,7 +17,7 @@ import com.qhshef.gr.FoodDeli.FragDelivery;
 import com.qhshef.gr.FragBus.FragSchoolBus;
 import com.qhshef.gr.FragCounsel.FragCoun;
 import com.qhshef.gr.FragDuksung.FragDuksungMain;
-import com.qhshef.gr.FragFood.FragCamTel;
+import com.qhshef.gr.FragFood.FragFood;
 import com.qhshef.gr.FragMap.FragMapSelect;
 import com.qhshef.gr.FragRule.FragDormRule;
 
@@ -46,8 +46,8 @@ public class FragHome extends Fragment implements View.OnClickListener{
         duksung.setOnClickListener(this);
         Button rule = v.findViewById(R.id.dormrule);
         rule.setOnClickListener(this);
-        Button camtel = v.findViewById(R.id.camtel);
-        camtel.setOnClickListener(this);
+        Button food = v.findViewById(R.id.food);
+        food.setOnClickListener(this);
         Button schoolBus = v.findViewById(R.id.schoolbus);
         schoolBus.setOnClickListener(this);
         Button coun = v.findViewById(R.id.coun);
@@ -97,8 +97,8 @@ public class FragHome extends Fragment implements View.OnClickListener{
             fragment = new FragDuksungMain();
         } else if(view.getId() == R.id.dormrule){
             fragment = new FragDormRule();
-        } else if(view.getId() == R.id.camtel){
-            fragment = new FragCamTel();
+        } else if(view.getId() == R.id.food){
+            fragment = new FragFood();
         } else if(view.getId() == R.id.schoolbus){
             fragment = new FragSchoolBus();
         } else if(view.getId() == R.id.coun){
