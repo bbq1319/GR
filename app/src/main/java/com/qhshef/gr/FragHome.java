@@ -54,6 +54,8 @@ public class FragHome extends Fragment implements View.OnClickListener{
         coun.setOnClickListener(this);
         Button delivery = v.findViewById(R.id.delivery);
         delivery.setOnClickListener(this);
+        ImageView image2 = v.findViewById(R.id.image2);
+        image2.setOnClickListener(this);
 
         ImageView image1 = v.findViewById(R.id.image1);
         image1.setOnClickListener(new View.OnClickListener() {
@@ -72,14 +74,6 @@ public class FragHome extends Fragment implements View.OnClickListener{
                 dialog.getWindow().setAttributes(wm);
 
                 dialog.show();
-            }
-        });
-        ImageView image2 = v.findViewById(R.id.image2);
-        image2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
             }
         });
 
@@ -105,6 +99,8 @@ public class FragHome extends Fragment implements View.OnClickListener{
             fragment = new FragCoun();
         } else if(view.getId() == R.id.delivery){
             fragment = new FragDelivery();
+        } else if(view.getId() == R.id.image2){
+            fragment = new FragHomeTest();
         }
 
 
