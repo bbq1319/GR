@@ -32,11 +32,9 @@ public class FragFoodAll extends Fragment implements View.OnClickListener {
     ListViewAdapter adapter;
     Button food_back;
 
-
     public FragFoodAll() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,7 +47,6 @@ public class FragFoodAll extends Fragment implements View.OnClickListener {
 
         // 리스트뷰 참조 및 Adapter 달기
         listView = v.findViewById(R.id.food_list);
-
         food_back = v.findViewById(R.id.food_back);
         food_back.setOnClickListener(this);
 
@@ -95,13 +92,14 @@ public class FragFoodAll extends Fragment implements View.OnClickListener {
                 Elements date = doc.select(".table-wrap > table > tbody > tr > th");
                 Elements day = doc.select(".table-wrap > table > tbody > tr > td");
 
+                result.put("date_size", Integer.toString(date.size()));
+                result.put("meal_break", date.get(0).text());
+                result.put("meal_lunch", date.get(1).text());
+                result.put("meal_dinner", date.get(2).text());
+
                 // 날짜 전달
-                for(int i=3;i<date.size()-1;i++){
-                    result.put("date_size", Integer.toString(date.size()));
+                for(int i=3;i<date.size()-9;i++){
                     result.put("date"+i, date.get(i).text());
-                    result.put("meal_break", date.get(0).text());
-                    result.put("meal_lunch", date.get(1).text());
-                    result.put("meal_dinner", date.get(2).text());
                     result.put("main_break"+i, day.get(i*3-3).text());
                     result.put("main_lunch"+i, day.get(i*3-2).text());
                     result.put("main_dinner"+i, day.get(i*3-1).text());
@@ -127,7 +125,7 @@ public class FragFoodAll extends Fragment implements View.OnClickListener {
 
             listView.setAdapter(adapter);
 
-            for(int i=3;i<Integer.parseInt(map.get("date_size"))-1;i++){
+            for(int i=3;i<Integer.parseInt(map.get("date_size"))-9;i++){
                 adapter.addItem(map.get("date"+i),
                         map.get("meal_break"), map.get("meal_lunch"), map.get("meal_dinner"),
                         map.get("main_break"+i), map.get("main_lunch"+i), map.get("main_dinner"+i));

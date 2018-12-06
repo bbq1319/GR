@@ -15,6 +15,7 @@
         android:orientation="vertical"
         android:background="@drawable/food_white_line">
 
+        <!-- TITLE -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -27,8 +28,7 @@
 
         </LinearLayout>
 
-
-
+        <!-- CONTENT -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -46,8 +46,7 @@
 
         </LinearLayout>
 
-
-
+        <!-- FOOTER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

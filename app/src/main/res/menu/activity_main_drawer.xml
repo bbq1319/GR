@@ -8,33 +8,29 @@
             android:icon="@drawable/ic_home_black_24dp"
             android:title="HOME" />
         <item
+            android:id="@+id/nav_ggu"
+            android:icon="@drawable/nav_ggu"
+            android:title="@string/ggu_school" />
+        <item
+            android:id="@+id/nav_notice"
+            android:icon="@drawable/promotion"
+            android:title="@string/ggu_notice" />
+        <item
             android:id="@+id/nav_food"
             android:icon="@drawable/nav_food"
-            android:title="식단표" />
+            android:title="@string/ggu_food" />
         <item
             android:id="@+id/nav_delivery"
             android:icon="@drawable/nav_del"
-            android:title="배달메뉴" />
+            android:title="@string/ggu_delivery" />
+        <item
+            android:id="@+id/nav_schoolbus"
+            android:icon="@drawable/nav_school"
+            android:title="@string/ggu_schoolbus" />
         <item
             android:id="@+id/nav_duk"
             android:icon="@drawable/nav_duk"
-            android:title="덕성여객 시간표" />
-        <item
-            android:id="@+id/nav_school"
-            android:icon="@drawable/nav_school"
-            android:title="학교버스 시간표" />
-        <item
-            android:id="@+id/nav_map"
-            android:icon="@drawable/ic_pin_drop_black_24dp"
-            android:title="지도" />
-        <item
-            android:id="@+id/nav_coun"
-            android:icon="@drawable/ic_people_black_24dp"
-            android:title="상담실" />
-        <item
-            android:id="@+id/nav_rule"
-            android:icon="@drawable/nav_rule"
-            android:title="재활용" />
+            android:title="@string/ggu_duksung" />
     </group>
 
     <item android:title="Information">
@@ -42,7 +38,7 @@
             <item
                 android:id="@+id/nav_info"
                 android:icon="@drawable/ic_info_outline_black_24dp"
-                android:title="어플 정보" />
+                android:title="@string/ggu_info" />
         </menu>
     </item>
 

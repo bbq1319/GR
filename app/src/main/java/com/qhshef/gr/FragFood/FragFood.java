@@ -39,7 +39,7 @@ public class FragFood extends Fragment implements View.OnClickListener {
     TextView food_date;
     TextView food_meal;
     TextView food_main;
-    TextView bewteen;
+    TextView between;
     Button food_all;
 
     Fragment fragment = null;
@@ -47,7 +47,6 @@ public class FragFood extends Fragment implements View.OnClickListener {
     public FragFood() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,7 +57,7 @@ public class FragFood extends Fragment implements View.OnClickListener {
         food_main = v.findViewById(R.id.food_main);
         food_date = v.findViewById(R.id.food_date);
         food_meal = v.findViewById(R.id.food_meal);
-        bewteen = v.findViewById(R.id.between);
+        between = v.findViewById(R.id.between);
         food_all = v.findViewById(R.id.food_all);
         food_all.setOnClickListener(this);
 
@@ -66,7 +65,7 @@ public class FragFood extends Fragment implements View.OnClickListener {
         food_main.setTypeface(typeface);
         food_date.setTypeface(typeface);
         food_meal.setTypeface(typeface);
-        bewteen.setTypeface(typeface);
+        between.setTypeface(typeface);
         food_all.setTypeface(typeface);
 
         // ssl 권한을 위해 추가
@@ -100,7 +99,7 @@ public class FragFood extends Fragment implements View.OnClickListener {
 
         @Override
         protected void onPreExecute(){
-            bewteen.setVisibility(View.GONE);
+            between.setVisibility(View.GONE);
 
             asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             asyncDialog.setMessage("잠시만 기다려주세요...");
@@ -121,10 +120,6 @@ public class FragFood extends Fragment implements View.OnClickListener {
                 // 파싱 해오기
                 Elements date = doc.select(".table-wrap > table > tbody > tr > th");
                 Elements day = doc.select(".table-wrap > table > tbody > tr > td");
-                Elements all = doc.select(".table-wrap > table > tbody > tr");
-
-                System.out.println(date);
-                System.out.println(day);
 
                 // 시간 설정
                 long now = System.currentTimeMillis();
@@ -231,17 +226,12 @@ public class FragFood extends Fragment implements View.OnClickListener {
                 // 로딩 중
                 for (int i = 0; i < 1; i++) {
                     Thread.sleep(500);
-                    System.out.println("**********************************");
                 }
+
             } catch (Exception e){
                 e.printStackTrace();
-            }
 
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            }
 
             return result;
 
@@ -254,7 +244,7 @@ public class FragFood extends Fragment implements View.OnClickListener {
 
             try {
                 // / 출력
-                bewteen.setVisibility(View.VISIBLE);
+                between.setVisibility(View.VISIBLE);
 
                 // 날짜 / 조,중,석식 출력
                 food_date.setText(map.get("date"));
@@ -262,9 +252,12 @@ public class FragFood extends Fragment implements View.OnClickListener {
 
                 // 메뉴 출력
                 String getFoodMain = map.get("main");
+                System.out.println(getFoodMain);
                 String[] setFoodMain = getFoodMain.split("\\s");
+
                 for(int n=0;n<setFoodMain.length;n++)
                     food_main.append(setFoodMain[n]+"\n");
+
             } catch (Exception e){
                 e.printStackTrace();
                 AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
@@ -287,8 +280,8 @@ public class FragFood extends Fragment implements View.OnClickListener {
                             }
                         });
                 dialog.show();
-            }
 
+            }
         }
     }
 

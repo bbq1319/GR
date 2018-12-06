@@ -9,4 +9,9 @@
 
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorGray">#6e6e6e</color>
+
+
+    <color name="gguBlue">#326FAF</color>
+    <color name="gguYellow">#F8B80D</color>
 </resources>

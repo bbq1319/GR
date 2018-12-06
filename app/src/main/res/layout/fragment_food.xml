@@ -16,6 +16,7 @@
         android:layout_margin="10dp"
         android:padding="10dp">
 
+        <!-- TITLE -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -28,8 +29,7 @@
 
         </LinearLayout>
 
-
-
+        <!-- CONTENT -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -41,6 +41,8 @@
                 android:layout_height="0dp"
                 android:layout_weight="8"
                 android:background="@drawable/food_red_line"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp">
 
@@ -48,13 +50,12 @@
                     android:id="@+id/food_main"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="20dp"
-                    android:textColor="#000000"
+                    android:gravity="center_vertical"
                     android:textAlignment="center"
-                    android:gravity="center_vertical"/>
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
 
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,11 +95,9 @@
 
             </LinearLayout>
 
-
         </LinearLayout>
 
-
-
+        <!-- FOOTER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -120,13 +119,8 @@
                 android:textStyle="bold"
                 android:textSize="24dp"/>
 
-
         </LinearLayout>
 
-
     </LinearLayout>
-
-
-
 
 </LinearLayout>

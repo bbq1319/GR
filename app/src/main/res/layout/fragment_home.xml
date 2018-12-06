@@ -1,154 +1,149 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/gguBlue"
     tools:context="com.qhshef.gr.FragHome">
 
-    <!-- 위쪽 -->
-    <LinearLayout
+    <android.support.percent.PercentFrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="9"
+        android:layout_centerInParent="true">
 
-        <!-- 왼쪽 -->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="247dp"
+            app:layout_heightPercent="90%"
+            app:layout_widthPercent="90%"
+            android:orientation="vertical"
+            android:background="@color/colorWhite"
+            android:layout_gravity="center_horizontal|center_vertical">
 
-            <!-- 왼쪽상단 -->
+            <!-- 첫 번째 줄 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-
-                <!-- 교내식당 -->
                 <Button
-                    android:id="@+id/food"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:background="@drawable/food"/>
-
-            </LinearLayout>
-
-            <!-- 왼쪽하단 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <!-- 기숙사 재학생 규칙 -->
-                <Button
-                    android:id="@+id/dormrule"
+                    android:id="@+id/home"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:scaleType="fitXY"
-                    android:background="@drawable/rule"/>
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/img_home"/>
 
-                <LinearLayout
-                    android:orientation="vertical"
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/colorBlack"/>
+
+                <Button
+                    android:id="@+id/notice"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/img_notice"/>
 
-                    <!-- 실내지도 -->
-                    <Button
-                        android:id="@+id/map"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:scaleType="fitXY"
-                        android:background="@drawable/map"/>
 
-                    <!-- 상담실 -->
-                    <Button
-                        android:id="@+id/coun"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:scaleType="fitXY"
-                        android:background="@drawable/counselor"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:background="@color/colorBlack"/>
 
+            <!-- 두 번째 줄 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/food"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/img_food"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/colorBlack"/>
+
+                <Button
+                    android:id="@+id/delivery"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/img_delivery"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:background="@color/colorBlack"/>
+
+            <!-- 세 번째 줄 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/schoolbus"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/img_schoolbus"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/colorBlack"/>
+
+                <Button
+                    android:id="@+id/duksung"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/img_duksung"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <!-- 오른쪽 -->
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <!-- 오른쪽상단 -->
-            <!-- 이미지 -->
-            <ImageView
-                android:id="@+id/image1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:scaleType="fitXY"
-                android:src="@drawable/gr"/>
-
-            <!-- 오른쪽중단 -->
-            <!-- 덕성여객 -->
-            <Button
-                android:id="@+id/duksung"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:scaleType="fitXY"
-                android:background="@drawable/duksung"/>
-
-            <!-- 오른쪽하단 -->
-            <!-- 학교버스 -->
-            <Button
-                android:id="@+id/schoolbus"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:scaleType="fitXY"
-                android:background="@drawable/school"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-    <!-- 아래쪽 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <!-- 이미지2 -->
-        <ImageView
-            android:id="@+id/image2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="fitXY"
-            android:src="@drawable/gr2"/>
-
-        <!-- 배달 -->
-        <Button
-            android:id="@+id/delivery"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="fitXY"
-            android:background="@drawable/delivery"/>
-
-    </LinearLayout>
-
-
+    </android.support.percent.PercentFrameLayout>
 
 </LinearLayout>

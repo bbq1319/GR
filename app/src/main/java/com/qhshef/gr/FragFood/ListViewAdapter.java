@@ -44,13 +44,13 @@ public class ListViewAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        TextView food_date_all = (TextView) view.findViewById(R.id.food_date_all);
-        TextView food_meal_break = (TextView) view.findViewById(R.id.food_meal_break);
-        TextView food_main_break = (TextView) view.findViewById(R.id.food_main_break);
-        TextView food_meal_lunch = (TextView) view.findViewById(R.id.food_meal_lunch);
-        TextView food_main_lunch = (TextView) view.findViewById(R.id.food_main_lunch);
-        TextView food_meal_dinner = (TextView) view.findViewById(R.id.food_meal_dinner);
-        TextView food_main_dinner = (TextView) view.findViewById(R.id.food_main_dinner);
+        TextView food_date_all = view.findViewById(R.id.food_date_all);
+        TextView food_meal_break = view.findViewById(R.id.food_meal_break);
+        TextView food_main_break = view.findViewById(R.id.food_main_break);
+        TextView food_meal_lunch = view.findViewById(R.id.food_meal_lunch);
+        TextView food_main_lunch = view.findViewById(R.id.food_main_lunch);
+        TextView food_meal_dinner = view.findViewById(R.id.food_meal_dinner);
+        TextView food_main_dinner = view.findViewById(R.id.food_main_dinner);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         ListViewItem listViewItem = listViewItemsList.get(position);
